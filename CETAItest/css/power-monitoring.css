@@ -1,0 +1,574 @@
+/* 电力监控页面样式 */
+.power-monitoring-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* 与工作台保持一致 */
+    padding-top: 0; /* 移除顶部内边距，使用margin-top代替 */
+}
+
+.power-monitoring-container {
+    padding: 0; /* 移除内边距，与工作台布局一致 */
+    max-width: 100%; /* 调整为100%宽度 */
+    margin: 0;
+    width: 100%;
+}
+
+/* 内容区域样式统一 */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    padding: 16px;
+    gap: 16px;
+    overflow-y: auto;
+    height: calc(100vh - 64px); /* 减去头部高度40px+24px */
+    margin-top: 64px; /* 添加头部高度的外边距 */
+    position: relative;
+    z-index: 1;
+}
+
+/* 数据总览区域 */
+.data-overview-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* 与工作台一致 */
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.section-title {
+    font-size: 14px; /* 与工作台一致 */
+    font-weight: 500;
+    color: #13171F; /* 统一颜色 */
+    margin-bottom: 16px; /* 与工作台一致 */
+    padding-left: 10px; /* 添加与工作台一致的左内边距 */
+    border-left: 3px solid #29B061; /* 添加左侧边框 */
+}
+
+.stats-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 10px 0; /* 添加与工作台一致的上下内边距 */
+}
+
+.stat-card-item {
+    flex: 1;
+    min-width: 250px; /* 与工作台统一 */
+    background-image: linear-gradient(to bottom, #FFF7F6, #FFECEC);
+    border-radius: 8px;
+    padding: 24px; /* 与工作台统一 */
+    border: 1px solid rgba(233, 233, 233, 0.6); /* 添加边框 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* 添加阴影 */
+}
+
+.stat-card-item.blue {
+    background-image: linear-gradient(to bottom, #F2F9FE, #E6F4FE);
+}
+
+.stat-card-item.purple {
+    background-image: linear-gradient(to bottom, #F6F7FF, #ECECFF);
+}
+
+.stat-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.stat-card-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #FFE4E4;
+    flex-shrink: 0;
+}
+
+.stat-card-icon img {
+    width: 24px;
+    height: 24px;
+    color: #F95E5A;
+}
+
+.stat-card-icon.blue {
+    background-color: #DDF0FF;
+}
+
+.stat-card-icon.purple {
+    background-color: #E4E7FF;
+}
+
+.stat-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 400;
+    color: #333;
+}
+
+.stat-value.medium {
+    font-size: 18px;
+}
+
+.stat-secondary {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.stat-secondary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.trend-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #F95E5A;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.trend-indicator.down {
+    color: #29B061;
+}
+
+/* 分析图表区域 */
+.analysis-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* 与工作台一致 */
+    margin-bottom: 20px; /* 减少底部边距 */
+}
+
+.analysis-card {
+    flex: 1;
+    min-width: 350px;
+    height: auto; /* 自适应高度 */
+    min-height: 240px; /* 减少最小高度 */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px; /* 减少内边距 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.analysis-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px; /* 减少底部边距 */
+}
+
+.analysis-card-title {
+    font-size: 14px; /* 与工作台统一 */
+    font-weight: 500;
+    color: #13171F; /* 统一颜色 */
+}
+
+.view-distribution-btn {
+    border: 1px solid #CBCFD4;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 14px;
+    color: #666;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-distribution-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* 饼图样式 */
+.pie-chart-container {
+    display: flex;
+    flex-direction: row;
+    height: 180px; /* 增加高度 */
+    overflow: visible;
+    gap: 12px; /* 减少间距使内容更紧凑 */
+    align-items: center;
+    justify-content: center; /* 居中对齐 */
+    position: relative;
+    margin: 5px 0; /* 减少上下边距 */
+}
+
+.pie-chart {
+    flex: 0 0 180px; /* 增加饼图区域宽度 */
+    height: 180px; /* 增加饼图区域高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.pie-chart-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 88px; /* 稍微增大中心信息区域 */
+    height: 88px; /* 稍微增大中心信息区域 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pie-chart-total-label {
+    font-size: 13px; /* 增大字体 */
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.pie-chart-total-value {
+    font-size: 22px; /* 增大字体 */
+    font-weight: 500;
+    color: #333;
+}
+
+.pie-legend {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 适当增加间距 */
+    padding-left: 0;
+    justify-content: center; /* 垂直居中 */
+    max-width: 400px; /* 限制宽度 */
+}
+
+.legend-item {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 22px; /* 增加高度 */
+}
+
+.legend-color {
+    width: 14px; /* 增大颜色块 */
+    height: 14px; /* 增大颜色块 */
+    border-radius: 2px;
+    margin-right: 10px; /* 增加右边距 */
+    flex-shrink: 0;
+}
+
+.legend-color.red {
+    background-color: #FF5B5A;
+}
+
+.legend-color.orange {
+    background-color: #FFC168;
+}
+
+.legend-color.green {
+    background-color: #29B061;
+}
+
+.legend-color.blue {
+    background-color: #5C94FF;
+}
+
+.legend-color.cyan {
+    background-color: #00A2FF;
+}
+
+.legend-name {
+    display: flex;
+    align-items: center;
+    font-size: 14px; /* 增大字体 */
+    color: #333;
+    min-width: 50px;
+    margin-right: 14px; /* 增加右边距 */
+    flex-shrink: 0;
+}
+
+.legend-value {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.legend-percent {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin-right: 10px; /* 增加右边距 */
+    min-width: 50px;
+}
+
+.legend-count {
+    font-size: 13px; /* 增大字体 */
+    color: #666;
+    min-width: 60px;
+}
+
+/* 柱状图样式 - 修改为横向柱状图 */
+.bar-chart-container {
+    height: auto; /* 自适应高度 */
+    display: flex;
+    flex-direction: column;
+    overflow: visible; /* 内容可见，不裁剪 */
+    margin-bottom: 0; /* 移除底部边距 */
+    padding: 5px 0; /* 减少内边距 */
+}
+
+.bar-chart-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.bar-chart-y-axis {
+    display: none; /* 横向图不需要纵轴标签 */
+}
+
+.bar-chart-y-label {
+    font-size: 12px;
+    color: #989898;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+.bar-chart-content {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* 自适应高度 */
+    position: relative;
+    overflow: visible; /* 内容可见，不裁剪 */
+    padding: 0 30px 0 0; /* 调整左右内边距，右侧留更多空间给数值 */
+}
+
+.bar-chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: row; /* 横向网格线 */
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 0; /* 确保在内容下层 */
+}
+
+.bar-chart-grid-line {
+    height: 100%;
+    width: 1px;
+    background-color: #E0E4E8;
+    border-right: 1px dashed #E0E4E8;
+}
+
+/* 横向条形图样式 */
+.horizontal-bars-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 减少间距，让图表更紧凑 */
+    width: 100%;
+    padding: 5px 0; /* 减少上下内边距 */
+    position: relative;
+    z-index: 1;
+    height: auto; /* 自适应高度 */
+    overflow-y: visible; /* 内容可见 */
+}
+
+.horizontal-bar-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2px; /* 减少间距，更紧凑 */
+}
+
+.horizontal-bar-label {
+    font-size: 13px; /* 稍微减小字体 */
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: 0; /* 移除底部边距 */
+}
+
+.horizontal-bar-container {
+    height: 16px; /* 减小高度，更紧凑 */
+    width: 100%;
+    position: relative;
+    background-color: rgba(229, 229, 229, 0.3);
+    border-radius: 3px; /* 减小圆角 */
+}
+
+.horizontal-bar {
+    height: 100%;
+    background-color: #55CD87;
+    border-radius: 3px; /* 减小圆角 */
+    transition: width 0.8s ease;
+    position: relative;
+}
+
+.horizontal-bar.blue {
+    background-color: #4CA6FF;
+}
+
+.horizontal-bar-value {
+    position: absolute;
+    right: -28px; /* 调整位置，靠近条形图 */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px; /* 减小字体 */
+    font-weight: 500;
+    color: #333;
+}
+
+/* X轴标签 */
+.bar-chart-x-axis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding-left: 0;
+}
+
+.bar-chart-x-label {
+    font-size: 12px;
+    color: #989898;
+    text-align: center;
+}
+
+/* 统计图表区域 */
+.statistics-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; /* 与工作台一致 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.time-selector {
+    background-color: #fff;
+    border: 1px solid #CBCFD4;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #666;
+}
+
+.time-column-chart {
+    height: 260px;
+    position: relative;
+}
+
+.time-column-chart-grid {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-column-chart-y-axis {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    bottom: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.time-column-chart-x-axis {
+    position: absolute;
+    left: 40px;
+    right: 40px;
+    bottom: 0;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-column-chart-bars {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.time-column-bar {
+    width: 16px;
+    background-color: #55CD87;
+    border-radius: 2px 2px 0 0;
+}
+
+.units-label {
+    display: none; /* 隐藏单位标签 */
+}
+
+@media (max-width: 1200px) {
+    .stats-card-container {
+        flex-direction: column;
+    }
+    
+    .analysis-section {
+        flex-direction: column;
+    }
+    
+    .pie-chart-container {
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+    
+    .pie-legend {
+        width: 100%;
+    }
+} 
+
+/* 两个图表的容器样式 */
+#equipmentFailureChart, #alarmEventTypeChart {
+    margin-bottom: 30px;
+}

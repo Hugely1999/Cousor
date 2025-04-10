@@ -1,0 +1,246 @@
+.ai-assistant-container {
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* AI图标样式 */
+.ai-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3498db, #1abc9c);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.ai-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.ai-icon-inner {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+/* 面板样式 */
+.ai-panel {
+  position: fixed;
+  right: 30px;
+  bottom: 100px;
+  width: 360px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slide-up 0.3s ease-out;
+  z-index: 9998;
+}
+
+/* 顶部控制栏 */
+.ai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, #3498db, #1abc9c);
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.drag-handle {
+  flex: 1;
+  height: 20px;
+  cursor: grab;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.control-buttons button {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.minimize-btn {
+  background-color: #f1c40f;
+}
+
+.close-btn {
+  background-color: #e74c3c;
+}
+
+/* 对话区域 */
+.conversation-container {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.message {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+  line-height: 1.5;
+  position: relative;
+}
+
+.ai-message {
+  background-color: #e1f5fe;
+  color: #0277bd;
+  border-top-left-radius: 5px;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.user-message {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-top-right-radius: 5px;
+  align-self: flex-end;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* 输入区域 */
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.text-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.text-input:focus {
+  border-color: #3498db;
+}
+
+.voice-btn, .send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #f2f2f2;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.voice-btn {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.voice-btn.recording {
+  background-color: #ff5252;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2" ry="2"></rect></svg>');
+}
+
+.send-btn {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.voice-btn:hover, .send-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* 语音波形动画 */
+.voice-wave-container {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.wave-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  gap: 3px;
+}
+
+.wave-bar {
+  width: 4px;
+  background-color: #3498db;
+  height: 10px;
+  border-radius: 2px;
+  animation: wave 0.5s infinite ease-in-out alternate;
+}
+
+@keyframes wave {
+  0% {
+    height: 5px;
+  }
+  100% {
+    height: 30px;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式调整 */
+@media (max-width: 480px) {
+  .ai-panel {
+    width: 90%;
+    right: 5%;
+    height: 70vh;
+  }
+} 
